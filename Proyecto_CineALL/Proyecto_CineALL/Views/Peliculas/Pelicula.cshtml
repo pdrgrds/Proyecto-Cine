@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Models.Peliculas>
+
+@{
+    ViewBag.Title = "Pelicula";
+}
+<style>
+
+
+    body {
+        background-image: url('/FOTOS/BLACK1.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <br />
+    <br />
+    <h2>Pelicula</h2>
+
+    <p>
+        @Html.ActionLink("Crear Pelicula", "Create")
+    </p>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                CÓDIGO
+            </th>
+            <th>
+                PELICULA
+            </th>
+            <th>
+                TIPO
+            </th>
+            <th>
+                FECHA ESTRENO
+            </th>
+            <th>
+                FECHA FINAL
+            </th>
+            <th>
+                PRECIO
+            </th>
+            <th>
+                ENTRADAS DISPONIBLES
+            </th>
+            <th>
+                ESTADO
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionTipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaEstreno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaFinal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.entradasRestantes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.rutaimg)" style="width:40px; height:40px" />
+                </td>
+                <td>
+                    @Html.ActionLink("Actualizar", "Edit", new { codigo = item.codigo }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { codigo = item.codigo }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

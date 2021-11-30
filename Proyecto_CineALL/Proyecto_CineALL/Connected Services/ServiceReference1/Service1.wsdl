@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:63593/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:63593/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:63593/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_comestibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:comestibles" />
+  </wsdl:message>
+  <wsdl:message name="IService1_comestibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:comestiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarCome_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarCome" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarCome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarComeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarCome_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCome" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarCome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarComeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarCome_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCome" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarCome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarComeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_tipocomestibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:tipocomestibles" />
+  </wsdl:message>
+  <wsdl:message name="IService1_tipocomestibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:tipocomestiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarTipCome_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarTipCome" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarTipCome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarTipComeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarTipCome_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarTipCome" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarTipCome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarTipComeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarTipCome_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTipCome" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarTipCome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTipComeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_proveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:proveedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_proveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:proveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarProve_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarProve" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarProve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarProveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarProve_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarProve" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarProve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarProveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarProve_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProve" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarProve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listTipoPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:listTipoPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listTipoPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listTipoPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addTipoPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:addTipoPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addTipoPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addTipoPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_updateTipoPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateTipoPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_updateTipoPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateTipoPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteTipoPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteTipoPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteTipoPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteTipoPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listPeliculas_InputMessage">
+    <wsdl:part name="parameters" element="tns:listPeliculas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listPeliculas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listPeliculasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_updatePelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_updatePelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deletePelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePelicula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deletePelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Transaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Transaccion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Transaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_validarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:validarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_validarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IniciarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CerrarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CerrarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="comestibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/comestibles" message="tns:IService1_comestibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/comestiblesResponse" message="tns:IService1_comestibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarCome" message="tns:IService1_AgregarCome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarComeResponse" message="tns:IService1_AgregarCome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActualizarCome" message="tns:IService1_ActualizarCome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActualizarComeResponse" message="tns:IService1_ActualizarCome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarCome" message="tns:IService1_EliminarCome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarComeResponse" message="tns:IService1_EliminarCome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="tipocomestibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/tipocomestibles" message="tns:IService1_tipocomestibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/tipocomestiblesResponse" message="tns:IService1_tipocomestibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipCome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarTipCome" message="tns:IService1_AgregarTipCome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarTipComeResponse" message="tns:IService1_AgregarTipCome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarTipCome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActualizarTipCome" message="tns:IService1_ActualizarTipCome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActualizarTipComeResponse" message="tns:IService1_ActualizarTipCome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipCome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarTipCome" message="tns:IService1_EliminarTipCome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarTipComeResponse" message="tns:IService1_EliminarTipCome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="proveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/proveedor" message="tns:IService1_proveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/proveedorResponse" message="tns:IService1_proveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarProve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarProve" message="tns:IService1_AgregarProve_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarProveResponse" message="tns:IService1_AgregarProve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActualizarProve" message="tns:IService1_ActualizarProve_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActualizarProveResponse" message="tns:IService1_ActualizarProve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarProve" message="tns:IService1_EliminarProve_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarProveResponse" message="tns:IService1_EliminarProve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listTipoPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listTipoPelicula" message="tns:IService1_listTipoPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listTipoPeliculaResponse" message="tns:IService1_listTipoPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addTipoPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addTipoPelicula" message="tns:IService1_addTipoPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addTipoPeliculaResponse" message="tns:IService1_addTipoPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateTipoPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/updateTipoPelicula" message="tns:IService1_updateTipoPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/updateTipoPeliculaResponse" message="tns:IService1_updateTipoPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTipoPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/deleteTipoPelicula" message="tns:IService1_deleteTipoPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/deleteTipoPeliculaResponse" message="tns:IService1_deleteTipoPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listPeliculas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listPeliculas" message="tns:IService1_listPeliculas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listPeliculasResponse" message="tns:IService1_listPeliculas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addPelicula" message="tns:IService1_addPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addPeliculaResponse" message="tns:IService1_addPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/updatePelicula" message="tns:IService1_updatePelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/updatePeliculaResponse" message="tns:IService1_updatePelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/deletePelicula" message="tns:IService1_deletePelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/deletePeliculaResponse" message="tns:IService1_deletePelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Transaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Transaccion" message="tns:IService1_Transaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TransaccionResponse" message="tns:IService1_Transaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/validarUsuario" message="tns:IService1_validarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/validarUsuarioResponse" message="tns:IService1_validarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IniciarSesion" message="tns:IService1_IniciarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IniciarSesionResponse" message="tns:IService1_IniciarSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CerrarSesion" message="tns:IService1_CerrarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CerrarSesionResponse" message="tns:IService1_CerrarSesion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="comestibles">
+      <soap:operation soapAction="http://tempuri.org/IService1/comestibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCome">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarCome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCome">
+      <soap:operation soapAction="http://tempuri.org/IService1/ActualizarCome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCome">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarCome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipocomestibles">
+      <soap:operation soapAction="http://tempuri.org/IService1/tipocomestibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipCome">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarTipCome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarTipCome">
+      <soap:operation soapAction="http://tempuri.org/IService1/ActualizarTipCome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipCome">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarTipCome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/proveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarProve">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarProve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProve">
+      <soap:operation soapAction="http://tempuri.org/IService1/ActualizarProve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProve">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarProve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listTipoPelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/listTipoPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTipoPelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/addTipoPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTipoPelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/updateTipoPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTipoPelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/deleteTipoPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listPeliculas">
+      <soap:operation soapAction="http://tempuri.org/IService1/listPeliculas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/addPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/updatePelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePelicula">
+      <soap:operation soapAction="http://tempuri.org/IService1/deletePelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Transaccion">
+      <soap:operation soapAction="http://tempuri.org/IService1/Transaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/validarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <soap:operation soapAction="http://tempuri.org/IService1/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <soap:operation soapAction="http://tempuri.org/IService1/CerrarSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:63593/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

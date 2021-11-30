@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Models.Proveedor>
+
+@{
+    ViewBag.Title = "Proveedor";
+}
+<style>
+
+
+    body {
+        background-image: url('/FOTOS/BLACK1.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <br />
+    <br />
+    <h2>Proveedor</h2>
+
+    <p>
+        @Html.ActionLink("Crear Proveedor", "Create")
+    </p>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                CÓDIGO
+            </th>
+            <th>
+                NOMBRE
+            </th>
+            <th>
+                TELÉFONO
+            </th>
+            <th>
+                DIRECCIÓN
+            </th>
+            <th>
+                ESTADO
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Actualizar", "Edit", new { id = item.id }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @ViewBag.mensaje
+    </div>
+</body>
+

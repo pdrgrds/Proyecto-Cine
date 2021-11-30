@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Models.Carrito>
+
+@{
+    ViewBag.Title = "Carrito";
+}
+
+<h2>Carrito</h2>
+<div>
+    @Html.ActionLink("Home", "Index", null, new { @class = "btn btn-danger" })
+    @Html.ActionLink("Ir a Comprar", "Comprar", null, new { @class = "btn btn-danger" })
+</div>
+
+<p>
+    @TempData["mensajeCarrito"]
+</p>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            Código producto
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Monto
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.rutaimg)" style="width:40px; height:40px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigoProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            @using (Html.BeginForm("Actualizar", "Home", FormMethod.Post))
+            {
+                @Html.Hidden("codigo", item.codigoProducto)
+
+                <td>
+                    @Html.TextBox("q", item.cantidad, new { type = "number" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.monto)
+                </td>
+                <td>
+                    <input type="submit" value="Actualizar" class="btn btn-warning" />
+                    @Html.ActionLink("Delete", "Delete", new { codigo = item.codigoProducto }, new { @class = "btn btn-danger" })
+                </td>
+            }
+        </tr>
+    }
+
+    <tr>
+        <td colspan="4">Total del Carrito</td>
+        <td>@Model.Sum(i => i.monto)</td>
+    </tr>
+
+</table>

@@ -1,0 +1,51 @@
+﻿.Carrito__Seleccionar {
+    display: flex;
+    min-height: calc(100vh - 50px);
+    background: #b54444;
+}
+
+.content__image__CS {
+    width: 450px;
+    position: relative;
+    background: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content__image__CS h3 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.content__image__CS img {
+    border-radius: 24px;
+    height: 400px;
+    width: 250px;
+}
+
+
+.content__Form__CSS {
+    width: calc(100% - 450px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content__Form__CSS h1, .content__Form__CSS h2 {
+    color: white;
+    font-weight: bolder;
+}
+
+.content__Form__CSS form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-left: 40px;
+}
+
+.content__Form__CSS form div {
+    display: flex;
+}

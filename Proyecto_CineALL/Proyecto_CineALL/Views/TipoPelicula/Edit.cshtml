@@ -1,0 +1,81 @@
+﻿@model Models.TipoPelicula
+
+@{
+    ViewBag.Title = "Edit";
+}
+<style>
+
+
+    body {
+        background-image: url('/FOTOS/BLACK3.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <br />
+    <h2>Actualizar</h2>
+    @{
+        var listado = new List<SelectListItem>() {
+         new SelectListItem()
+          {
+              Text = "Activo",
+              Value = "A"
+
+          },
+        new SelectListItem()
+        {
+            Text="Inhabilitado",
+            Value="I"
+
+        }
+    };
+    }
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Tipo Pelicula</h4>
+    <br />
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.codigo, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.codigo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("estado", listado)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-warning" /> |
+            @Html.ActionLink("Retornar", "TipoPelicula", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+</div>
+    }
+    <div>
+        @ViewBag.mensaje
+    </div>
+</body>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

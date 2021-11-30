@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Models.Comestibles>
+
+@{
+    ViewBag.Title = "Comestible";
+}
+<style>
+
+
+    body {
+        background-image: url('/FOTOS/BLACK1.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <br />
+    <br />
+    <h2>Comestible</h2>
+
+    <p>
+        @Html.ActionLink("Crear Comestible", "Create", new { @class = "btn btn-primary" })
+    </p>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                CÓDIGO
+            </th>
+            <th>
+                DESCRIPCIÓN
+            </th>
+            <th>
+                PRECIO
+            </th>
+            <th>
+                STOCK
+            </th>
+            <th>
+                TIPO
+            </th>
+            <th>
+                PROVEEDOR
+            </th>
+            <th>
+                ESTADO
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cod_Com)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descrip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stock_Actual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionTipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionProveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.rutaimg)" style="width:40px; height:40px" />
+                </td>
+                <td>
+                    @Html.ActionLink("Actualizar", "Edit", new { cod_Com = item.cod_Com }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { cod_Com = item.cod_Com }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

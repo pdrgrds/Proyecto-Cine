@@ -1,0 +1,95 @@
+﻿@using Models
+
+<!DOCTYPE html>
+@{
+    string usuario = System.Web.HttpContext.Current.Session["Usuario"] as String;
+    string Tipo = System.Web.HttpContext.Current.Session["Tipo"] as String;
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/INICIO.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Styles/listMantenimiento.css")
+    @Styles.Render("~/Styles/Carrito.css")
+    @Styles.Render("~/Styles/Home.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="logo">
+                    <h1><a href="/">Cinem<a class="all">ALL</a></a></h1>
+                    <p>Cine para toda la familia</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="account">
+                    <ul>
+                        <li>
+                            <div class="hidden-xs">
+                                <h4><a>Call  555-5555</a></h4>
+                            </div>
+                            <ul class="nav nav-pills">
+                                @if (usuario != null)
+                                {
+                                    <li><a style="border-radius:initial;">@usuario</a></li>
+                                    <li><a style="border-radius:initial;" href="#">Cerrar Sesion</a></li>
+                                }
+                                else
+                                {
+                                    <li><a style="border-radius:initial;" href="@Url.Action("Login","Usuario")">Iniciar Sesion</a></li>
+                                }
+                                <li><a style="border-radius:initial;" href="/Home/Carrito">Carrito</a></li>
+                                <li><a style="border-radius:initial;" href="/Home/Comprar">Comprar</a></li>
+                            </ul>
+
+                            <div class="visible-xs">
+                                <p>018##-######</p>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="nav-menus">
+                    @if (Tipo != null) {
+                        <ul class="nav nav-pills">
+                            <li>@Html.ActionLink("Tipo Comestibles", "TipoComestibles", "TipoComestibles")</li>
+                            <li>@Html.ActionLink("TipoPelicula", "TipoPelicula", "TipoPelicula")</li>
+                            <li>@Html.ActionLink("Proveedor", "Proveedor", "Proveedor")</li>
+                            <li>@Html.ActionLink("Comestibles", "Comestible", "Comestibles")</li>
+                            <li>@Html.ActionLink("Peliculas", "Pelicula", "Peliculas")</li>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="content__Main">
+        @RenderBody()
+        <hr />
+        <footer>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

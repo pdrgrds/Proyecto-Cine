@@ -1,0 +1,118 @@
+﻿@model Models.Comestibles
+@using Models
+@{
+    ViewBag.Title = "Edit";
+}
+<style>
+
+
+    body {
+        background-image: url('/FOTOS/BLACK3.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <br />
+    <h2>Actualizar</h2>
+    @{
+        var listado = new List<SelectListItem>() {
+         new SelectListItem()
+          {
+              Text = "Activo",
+              Value = "A"
+
+          },
+        new SelectListItem()
+        {
+            Text="Inhabilitado",
+            Value="I"
+
+        }
+    };
+    }
+
+    @using (Html.BeginForm("Edit", "Comestibles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Comestibles</h4>
+    <br />
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.cod_Com, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cod_Com, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.cod_Com, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descrip, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.descrip, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descrip, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.precio, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.precio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.precio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.stock_Actual, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.stock_Actual, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.stock_Actual, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("id_Tipo", ViewBag.tipcomestibles as SelectList)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_proveedor, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("id_proveedor", ViewBag.proveedor as SelectList)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("estado", listado)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.rutaimg, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("archivo", "", new { type = "file", accept = "image/*" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-warning" /> |
+            @Html.ActionLink("Retornar", "Comestible", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+</div>
+    }
+    <div>
+        @ViewBag.mensaje
+    </div>
+</body>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

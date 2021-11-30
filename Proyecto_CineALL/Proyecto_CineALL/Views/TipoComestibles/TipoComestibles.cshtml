@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Models.TipoComestible>
+
+@{
+    ViewBag.Title = "TipoComestibles";
+}
+<style>
+
+
+    body {
+        background-image: url('/FOTOS/BLACK1.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <br />
+    <br />
+    <h2>Tipo Comestibles</h2>
+
+    <p>
+        @Html.ActionLink("Crear Tipo Comestible", "Create")
+    </p>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                CÓDIGO
+            </th>
+            <th>
+                DESCRIPCIÓN
+            </th>
+            <th>
+                ESTADO
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descrip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Actualizar", "Edit", new { id = item.id }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

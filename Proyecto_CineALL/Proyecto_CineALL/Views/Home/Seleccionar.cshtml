@@ -1,0 +1,49 @@
+﻿@model Models.Carrito
+
+@{
+    ViewBag.Title = "Seleccionar";
+}
+
+
+<div class="Carrito__Seleccionar">
+    <div class="content__image__CS">
+        <h3>&#x2190; @Html.ActionLink(" Regresar", "Index", null, new { @class = "link-light" })</h3>
+        <img src="@Url.Content(Model.rutaimg)" />
+        <h2>
+            @Html.DisplayFor(model => model.codigoProducto)
+        </h2>
+        <div>
+            
+        </div>
+    </div>
+    <div class="content__Form__CSS">
+        <div>
+            <h1>
+                @Html.DisplayFor(model => model.descripcion)
+            </h1>
+            <h2>
+                Disponible: @Html.DisplayFor(model => model.stock)
+            </h2>
+            <h2>
+                S/. @Html.DisplayFor(model => model.precio)
+            </h2>
+        </div>
+        <div>
+            @using (Html.BeginForm())
+            {
+                @Html.Hidden("codigo", Model.codigoProducto)
+                @Html.Hidden("tipo", Model.tipo)
+                <h3>Cantidad: </h3>
+                <div>
+                    @Html.TextBox("Cantidad", 1, new { @class = "form-control" })
+                    <input type="submit" value="Agregar" class="btn btn-primary" disabled="@ViewBag.d" />
+                </div>
+            }
+            <div style="display: block;">
+                <h2>
+                    @ViewBag.mensaje
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>

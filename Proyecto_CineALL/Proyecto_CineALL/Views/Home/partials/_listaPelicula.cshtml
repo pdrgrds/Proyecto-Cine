@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Models.Peliculas>
+
+
+<div class="list__Home">
+    @foreach (var item in Model)
+    {
+        <div class="item__list" style="background-image: url('@Url.Content(item.rutaimg)')">
+            <h1 class="item__nombre">
+                @Html.DisplayFor(modelItem => item.nombre)
+            </h1>
+            <p class="btn__add">
+                @Html.ActionLink("Agregar", "Seleccionar", new { codigo = item.codigo, tipo = 1 })
+            </p>
+        </div>
+    }
+</div>
